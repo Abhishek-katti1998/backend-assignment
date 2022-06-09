@@ -2,6 +2,7 @@ const morgan = require("morgan");
 const express = require("express");
 const dotenv = require("dotenv");
 const compression = require("compression");
+const cors = require("cors");
 
 const app = express();
 const candidateRouter = require("./Routes/candidateRoute");
@@ -12,6 +13,10 @@ const globalErrorHandler = require("./controller/errorController");
 
 dotenv.config({ path: "./config.env" });
 
+//Impliment cors
+//Access-Control-Allow-origin to all requests
+app.use(cors());
+app.options("*", cors());
 //1)Middleware
 //data from  body added to the request object
 app.use(express.json());
