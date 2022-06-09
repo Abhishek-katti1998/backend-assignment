@@ -24,6 +24,11 @@ app.use((req, res, next) => {
 //Routes(Users)
 app.use("/api/v1/candidate", candidateRouter);
 app.use("/api/v1/users", userRouter);
+app.use("/", (req, res, next) => {
+  res
+    .status(200)
+    .json({ status: "succes", data: "Welcome to deskala assignment" });
+});
 //handle unhandled routes(invalid routes)
 app.all("*", (req, res, next) =>
   next(new AppError(`cannot find ${req.originalUrl} on this server!`, 404))
