@@ -6,18 +6,13 @@ const {
   deleteCandidateDetails,
 } = require("../controller/candidateController");
 
-const { protect } = require("../controller/authController");
-
 const router = express.Router();
 
-router
-  .route("/")
-  .get(protect, getAllCandidateDetails)
-  .post(createCandidateDetails);
+router.route("/").get(getAllCandidateDetails).post(createCandidateDetails);
 
 router
   .route("/:id")
-  .patch(protect, updateCandidateDetails)
-  .delete(protect, deleteCandidateDetails);
+  .patch(updateCandidateDetails)
+  .delete(deleteCandidateDetails);
 
 module.exports = router;
