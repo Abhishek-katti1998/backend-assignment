@@ -1,6 +1,7 @@
 const morgan = require("morgan");
 const express = require("express");
 const dotenv = require("dotenv");
+const compression = require("compression");
 
 const app = express();
 const candidateRouter = require("./Routes/candidateRoute");
@@ -14,7 +15,7 @@ dotenv.config({ path: "./config.env" });
 //1)Middleware
 //data from  body added to the request object
 app.use(express.json());
-
+app.use(compression());
 if (process.env.NODE_ENV === "development") app.use(morgan("dev"));
 app.use((req, res, next) => {
   req.requestTime = new Date().toISOString();
