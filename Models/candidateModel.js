@@ -31,7 +31,10 @@ const candidateSchema = new mongoose.Schema({
     type: String,
     required: [true, "please tell us your state name"],
   },
-  shortlisted: Boolean,
+  shortlisted: {
+    type: Boolean,
+    required: [true, "please enter the result for candidate"],
+  },
 });
 const candidateModel = mongoose.model("candidate", candidateSchema);
 module.exports = candidateModel;
