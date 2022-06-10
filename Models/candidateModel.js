@@ -7,7 +7,7 @@ const candidateSchema = new mongoose.Schema({
     required: [true, "please tell us your name"],
     // validate: [validator.isAlpha, 'name should cotnain only alphabets'],
   },
-  email: {
+  emailAddress: {
     type: String,
     unique: true,
     required: [true, "please tell us your email id"],
@@ -19,7 +19,7 @@ const candidateSchema = new mongoose.Schema({
     type: Number,
     required: [true, "please tell us your age"],
   },
-  dateofBirth: {
+  DateofBirth: {
     type: Date,
     required: [true, "please tell us your DOB"],
   },

@@ -2,15 +2,6 @@ const Candidate = require("../Models/candidateModel");
 const AppError = require("../utils/appError");
 const catchAsync = require("../utils/catchAsync");
 
-// exports.checkBody = (req, res, next) => {
-//   if (!req.body.name || !req.body.price) {
-//     res.status(404).json({
-//       status: "failuire",
-//       reason: "price or name missing",
-//     });
-//   }
-//   next();
-// };
 exports.getAllCandidateDetails = catchAsync(async (req, res, next) => {
   const candidate = await Candidate.find();
 
